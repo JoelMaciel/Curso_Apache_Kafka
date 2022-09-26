@@ -1,5 +1,6 @@
 package com.joel.strconsumer.custom;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.kafka.annotation.KafkaListener;
 
@@ -21,6 +22,12 @@ public @interface StrConsumerCustomListener {
 
     @AliasFor(annotation = KafkaListener.class, attribute = "groupId")
     String groupId() default "";
+
+    @AliasFor(annotation = KafkaListener.class, attribute = "errorHandler")
+    String errorHandler() default "errorCustomHandler";
+
+
+
 }
 
 
